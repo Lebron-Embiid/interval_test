@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		img{
+			display: block;
+			width: 50px;
+			height: 64px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+
+	</div>
+</body>
+<script type="text/javascript">
+	function date_time(){
+		var div = document.getElementById("div");
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth()+1;
+		var day = date.getDate();
+		var hour = date.getHours();
+		var minute = date.getMinutes();
+		var second = date.getSeconds();
+		function add(a){
+			if(a < 10){
+				a = "0"+a;
+			}
+			return a;
+		}
+		month = add(month);
+		day = add(day);
+		hour = add(hour);
+		minute = add(minute);
+		second = add(second);
+
+		function toStr(d){
+			return d.toString();
+		}
+		var y = toStr(year);
+		var m = toStr(month);
+		var d = toStr(day);
+		var h = toStr(hour);
+		var mi = toStr(minute);
+		var s = toStr(second);
+
+		for(var i=0;i<y.length;i++){
+			div_y = "<img src='"+y[0]+".jpg'/>"+"<img src='"+y[1]+".jpg'/>"+"<img src='"+y[2]+".jpg'/>"+"<img src='"+y[3]+".jpg'/>";
+		}
+		function content(oDiv,obj){
+			for(var i=0;i<obj.length;i++){
+				oDiv = "<img src='"+obj[0]+".jpg'/>"+"<img src='"+obj[1]+".jpg'/>";
+				return oDiv;
+			}
+		}
+		var div_m = content(div_m,m);
+		var div_d = content(div_d,d);
+		var div_h = content(div_h,h);
+		var div_mi = content(div_mi,mi);
+		var div_s = content(div_s,s);
+
+		div.innerHTML = div_y+"<img src='..jpg'/>"+div_m+"<img src='..jpg'/>"+div_d+"<img src='..jpg'/>"+div_h+"<img src='..jpg'/>"+div_mi+"<img src='..jpg'/>"+div_s;
+	}
+		var timer = setInterval(date_time,1000);
+
+		
+		// for(var i=0;i<m.length;i++){
+		// 	div_m = "<img src='"+m[0]+".jpg'/>"+"<img src='"+m[1]+".jpg'/>"+"<img src='..jpg'/>";
+		// }
+		// for(var i=0;i<d.length;i++){
+		// 	div_d = "<img src='"+d[0]+".jpg'/>"+"<img src='"+d[1]+".jpg'/>"+"<img src='..jpg'/>";
+		// }
+		// for(var i=0;i<h.length;i++){
+		// 	div_h = "<img src='"+h[0]+".jpg'/>"+"<img src='"+h[1]+".jpg'/>"+"<img src='..jpg'/>";
+		// }
+		// for(var i=0;i<mi.length;i++){
+		// 	div_mi = "<img src='"+mi[0]+".jpg'/>"+"<img src='"+mi[1]+".jpg'/>"+"<img src='..jpg'/>";
+		// }
+		// for(var i=0;i<s.length;i++){
+		// 	div_s = "<img src='"+s[0]+".jpg'/>"+"<img src='"+s[1]+".jpg'/>";
+		// }
+</script>
+</html>

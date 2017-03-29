@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#div{
+			width: 100px;
+			height: 50px;
+			background: red;
+			position: relative;
+			left: 0;
+		}
+		*{margin: 0;padding: 0;}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始" id="start">
+	<input type="button" value="向左移动" id="left">
+	<div id="div"></div>
+</body>
+	<script type="text/javascript">
+		var timer;
+		var timeo;
+		var start = document.getElementById("start");
+		var left = document.getElementById("left");
+		var div1 = document.getElementById("div");
+		start.onclick = function(){
+			clearInterval(timer);
+			clearInterval(timeo);
+			timer = setInterval(start_move,100);
+		}
+		left.onclick = function(){
+			clearInterval(timer);
+			clearInterval(timeo);
+			timeo = setInterval(left_move,100);
+		}
+		function start_move(){
+			div1.style.left = div1.offsetLeft+20+'px';
+			if(div1.offsetLeft >= window.innerWidth-115){
+				clearInterval(timer);
+			}
+		}
+		function left_move(){
+			div1.style.left = div1.offsetLeft-20+'px';
+			if(div1.offsetLeft == 0){
+				clearInterval(timeo);
+			}
+		}
+
+		// var timer = setInterval(start_move,100);
+		// alert(window.innerWidth);
+	</script>
+</html>
